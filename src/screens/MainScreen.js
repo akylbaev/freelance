@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { 
+import {
     View,
     StyleSheet,
     Button,
@@ -11,18 +11,34 @@ import Icons from 'react-native-vector-icons/Ionicons'
 
 class MainScreen extends Component {
 
-    static navigationOptions  = ({ navigation }) => ({
+
+    static navigationOptions = ({ navigation }) => ({
         title: 'Freelance.kz',
         headerLeft: (
             <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-                <View style={{paddingHorizontal: 10}}>
-                    <Icons name="md-menu" size={24}/>
+                <View style={{ paddingHorizontal: 10 }}>
+                    <Icons name="md-menu" size={24} />
                 </View>
             </TouchableOpacity>
         )
     })
 
-    signOut = async() =>{
+    _retrieveData = async () => {
+        try {
+            const value = await AsyncStorage.getItem('userToken');
+            if (value !== null) {
+                // We have data!!
+                console.warn(value);
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+
+
+
+    signOut = async () => {
         AsyncStorage.clear()
         this.props.navigation.navigate('AuthLoading')
     }
@@ -31,6 +47,7 @@ class MainScreen extends Component {
         return (
             <View style={styles.container}>
                 <Button title="Sign Out" onPress={this.signOut} />
+                <Button title="Show JWT" onPress={this._retrieveData} />
             </View>
         );
     }
