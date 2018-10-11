@@ -27,6 +27,8 @@ class SignInScreen extends Component {
         }
     }
 
+
+
     singIn = async () => {
         fetch('https://jobfind.herokuapp.com/api/users/login', {
             method: 'POST',
@@ -39,10 +41,10 @@ class SignInScreen extends Component {
                 password: this.state.password,
             }),
         }).then((response) => {
-        response.status == '200' ? response.json().then((responseJson) => {
-            AsyncStorage.setItem('userToken', responseJson.token.toString())
-            this.props.navigation.navigate('App')
-        }) : console.warn("error:", response.status)
+            response.status == '200' ? response.json().then((responseJson) => {
+                AsyncStorage.setItem('userToken', responseJson.token.toString())
+                this.props.navigation.navigate('App')
+            }) : console.warn("error:", response.status)
         })
 
             .catch((error) => {
@@ -72,7 +74,7 @@ class SignInScreen extends Component {
                     <Text style={{ color: '#fff', fontWeight: '500', fontSize: 14 }}>Войти</Text>
                 </TouchableOpacity>
 
-                <View style={{bottom: 0, flexDirection: 'row'}}>
+                <View style={{ bottom: 0, flexDirection: 'row' }}>
                     <Text>Еще не зарегистрированы? </Text>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
                         <Text>Sign Up</Text>

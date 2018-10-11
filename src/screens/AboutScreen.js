@@ -1,46 +1,37 @@
 import React, { Component } from "react";
-import {
+import { 
     View,
+    Text,
     StyleSheet,
-    Button,
-    AsyncStorage,
     TouchableOpacity
 } from "react-native";
-
 import Icons from 'react-native-vector-icons/Ionicons'
 
-class MainScreen extends Component {
-
-    
-
+class AboutScreen extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        title: 'Freelance.kz',
+        title: 'About',
         headerLeft: (
             <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
                 <View style={{ paddingHorizontal: 10 }}>
                     <Icons name="md-menu" size={24} />
                 </View>
             </TouchableOpacity>
-        )
+        ),
+        drawerIcon: (
+            <Icons name="md-home" size={24} />
+        ),
     })
-
-
-
-    signOut = async () => {
-        AsyncStorage.clear()
-        this.props.navigation.navigate('AuthLoading')
-    }
 
     render() {
         return (
             <View style={styles.container}>
-                <Button title="Sign Out" onPress={this.signOut} />
+                <Text>AboutScreen</Text>
             </View>
         );
     }
 }
-export default MainScreen;
+export default AboutScreen;
 
 const styles = StyleSheet.create({
     container: {

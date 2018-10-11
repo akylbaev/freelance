@@ -1,21 +1,16 @@
 import React, { Component } from "react";
-import {
+import { 
     View,
+    Text,
     StyleSheet,
-    Button,
-    AsyncStorage,
-    TouchableOpacity
+    TouchableOpacity,
 } from "react-native";
-
 import Icons from 'react-native-vector-icons/Ionicons'
 
-class MainScreen extends Component {
-
-    
-
+class OffersScreen extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        title: 'Freelance.kz',
+        title: 'Offers',
         headerLeft: (
             <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
                 <View style={{ paddingHorizontal: 10 }}>
@@ -25,22 +20,15 @@ class MainScreen extends Component {
         )
     })
 
-
-
-    signOut = async () => {
-        AsyncStorage.clear()
-        this.props.navigation.navigate('AuthLoading')
-    }
-
     render() {
         return (
             <View style={styles.container}>
-                <Button title="Sign Out" onPress={this.signOut} />
+                <Text>OffersScreen</Text>
             </View>
         );
     }
 }
-export default MainScreen;
+export default OffersScreen;
 
 const styles = StyleSheet.create({
     container: {
