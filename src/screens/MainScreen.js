@@ -27,15 +27,12 @@ class MainScreen extends Component {
 
 
 
-    signOut = async () => {
-        AsyncStorage.clear()
-        this.props.navigation.navigate('AuthLoading')
-    }
+    
 
     render() {
         return (
             <View style={styles.container}>
-                <Button title="Sign Out" onPress={this.signOut} />
+                
             </View>
         );
     }
