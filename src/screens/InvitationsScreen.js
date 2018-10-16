@@ -10,7 +10,7 @@ import Icons from 'react-native-vector-icons/Ionicons'
 class InvitationsScreen extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        title: 'Invitations',
+        title: 'Приглашения',
         headerLeft: (
             <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
                 <View style={{ paddingHorizontal: 10 }}>

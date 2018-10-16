@@ -61,13 +61,17 @@ class CustomDrawerContentComponent extends Component {
         AsyncStorage.clear()
         this.props.navigation.navigate('AuthLoading')
     }
+    profile(){
+        this.props.navigation.navigate('Profile')
+    }
+
 
     render() {
         const props = this.props;
         return (
             <View style={{ flex: 1 }}>
                 <View style={{ height: 150, backgroundColor: '#f1f3f6', alignItems: 'center', justifyContent: 'center' }}>
-                    <TouchableOpacity activeOpacity={0.7}>
+                    <TouchableOpacity activeOpacity={0.7} onPress={()=>this.profile()}>
                     <View style={{ height: 100, width: 100, borderRadius: 50, backgroundColor: 'gray' }}>
                         <Image style={{ width: null, height: null, flex: 1, borderRadius: 50 }} source={{ uri: 'http://www.gravatar.com/avatar/44c4f756beb20c24f22afd2160ba8dfc?s=200&r=pg&d=mm' }} resizeMode={'contain'} />
                     </View>
@@ -78,7 +82,7 @@ class CustomDrawerContentComponent extends Component {
                 <View style={{ flex: 1 }}>
                     <DrawerItems {...props} />
                 </View>
-                    <Button title="Sign Out" onPress={this.signOut} />
+                    <Button title="Выйти" onPress={this.signOut} />
                 
             </View>
         )

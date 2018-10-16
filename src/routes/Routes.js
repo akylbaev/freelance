@@ -9,12 +9,13 @@ import {
 } from "react-native";
 import { createStackNavigator, createBottomTabNavigator, createSwitchNavigator, createDrawerNavigator } from 'react-navigation'
 
-
+import Icons from 'react-native-vector-icons/Ionicons'
 
 import AuthLoadingScreen from '../screens/AuthLoadingScreen'
 import SignInScreen from '../screens/SignInScreen'
 import SignUpScreen from '../screens/SignUpScreen'
 import MainScreen from '../screens/MainScreen'
+import DetailedProject from '../screens/DetailedProject'
 
 import InvitationsScreen from '../screens/InvitationsScreen'
 import SubmittedProposalsScreen from '../screens/SubmittedProposalsScreen'
@@ -35,7 +36,8 @@ const AuthStackNavigator = createStackNavigator({
 
 
 const AppStackNavigator = createStackNavigator({
-    Main: MainScreen
+    Main: MainScreen,
+    Project: DetailedProject
 })
 
 const InvitationsStackNavigator = createStackNavigator({
@@ -60,19 +62,68 @@ const AboutNavigator = createStackNavigator({
 
 const ProfileStackNavigator = createStackNavigator({
     Profile: ProfileScreen,
-    ProfileEdit: ProfileEditScreen 
+    ProfileEdit: ProfileEditScreen
 })
 
 
 
 
 const AppDrawerNavigator = createDrawerNavigator({
-    FindWork: AppStackNavigator,
-    Invitations: InvitationsStackNavigator,
-    SubmittedProposals: SubmittedProposalsNavigator,
-    Offers: OffersNavigator,
-    Settings: SettingsNavigator,
-    About: AboutNavigator
+    FindWork: {
+        screen: AppStackNavigator,
+        navigationOptions: {
+            drawerLabel: 'Найти работу',
+            drawerIcon: ({ tintColor }) => (
+                <Icons name="md-briefcase" size={22} color={tintColor} />
+            ),
+        },
+    },
+
+    Invitations: {
+        screen: InvitationsStackNavigator,
+        navigationOptions: {
+            drawerLabel: 'Приглашения',
+            drawerIcon: ({ tintColor }) => (
+                <Icons name="md-person-add" size={22} color={tintColor} />
+            ),
+        },
+    },
+    SubmittedProposals: {
+        screen: SubmittedProposalsNavigator,
+        navigationOptions: {
+            drawerLabel: 'Отклики',
+            drawerIcon: ({ tintColor }) => (
+                <Icons name="md-document" size={22} color={tintColor} />
+            ),
+        },
+    },
+    Offers: {
+        screen: OffersNavigator,
+        navigationOptions: {
+            drawerLabel: 'Проекты',
+            drawerIcon: ({ tintColor }) => (
+                <Icons name="ios-briefcase" size={22} color={tintColor} />
+            ),
+        },
+    },
+    Settings: {
+        screen: SettingsNavigator,
+        navigationOptions: {
+            drawerLabel: 'Настройки',
+            drawerIcon: ({ tintColor }) => (
+                <Icons name="md-settings" size={22} color={tintColor} />
+            ),
+        },
+    },
+    About: {
+        screen: AboutNavigator,
+        navigationOptions: {
+            drawerLabel: 'О Приложений',
+            drawerIcon: ({ tintColor }) => (
+                <Icons name="md-information-circle" size={22} color={tintColor} />
+            ),
+        },
+    },
 }, {
         // initialRouteName: FindWork,
         contentComponent: CustomDrawerContentComponent

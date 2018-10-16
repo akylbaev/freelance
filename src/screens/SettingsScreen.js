@@ -10,7 +10,7 @@ import Icons from 'react-native-vector-icons/Ionicons'
 class SettingsScreen extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        title: 'Offers',
+        title: 'Настройки',
         headerLeft: (
             <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
                 <View style={{ paddingHorizontal: 10 }}>

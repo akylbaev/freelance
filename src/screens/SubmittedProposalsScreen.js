@@ -10,7 +10,7 @@ import Icons from 'react-native-vector-icons/Ionicons'
 class SubmittedProposalsScreen extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        title: 'Submitted Proposals',
+        title: 'Отклики',
         headerLeft: (
             <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
                 <View style={{ paddingHorizontal: 10 }}>

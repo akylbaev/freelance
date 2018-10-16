@@ -11,7 +11,7 @@ import Icons from 'react-native-vector-icons/Ionicons'
 class OffersScreen extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        title: 'Offers',
+        title: 'Мои Проекты',
         headerLeft: (
             <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
                 <View style={{ paddingHorizontal: 10 }}>
